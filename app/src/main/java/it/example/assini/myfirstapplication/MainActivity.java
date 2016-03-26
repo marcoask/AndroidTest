@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends Activity
 {
@@ -18,10 +19,15 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    public void onButtonTap(View v) {
         EditText edit =  (EditText) findViewById(R.id.my_name);
-        //String text = edit.getText.tostring();
         String text = edit.getText().toString();
+
+        Toast myToast = Toast.makeText(getApplicationContext(), "Ciao " + text +"!", Toast.LENGTH_LONG);
+        myToast.show();
+
 
     }
 
