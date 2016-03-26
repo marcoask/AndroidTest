@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">MyFirstApplication</string>
     <string name="action_settings">Settings</string>
-    <string name="name_hint">Stringa name_hint</string>
+    <string name="name_label">Nome: </string>
+    <string name="year_label">Anno: </string>
     <string name="tapme">Tap me!</string>
 </resources>

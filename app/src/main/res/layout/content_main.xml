@@ -12,37 +12,65 @@
     tools:context="it.example.assini.myfirstapplication.MainActivity"
     tools:showIn="@layout/activity_main">
 
-
-    <TextView
-        android:id="@+id/textView"
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/name_hint"
-        android:layout_centerHorizontal="true" />
+        android:text="Controlla Data"
+        android:id="@+id/buttonData"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:onClick="onDateTap"/>
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name_label"
+        android:layout_alignBottom="@+id/Name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:layout_marginTop="39dp"
+        android:layout_below="@+id/buttonData"
+        android:layout_toRightOf="@+id/nameLabel"
+        android:layout_alignRight="@+id/Year"
+        android:layout_alignEnd="@+id/Year" />
+
+    <TextView
+        android:id="@+id/yearlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/year_label"
+        android:layout_above="@+id/button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/Year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:layout_below="@id/nameLabel"
+        android:layout_toRightOf="@+id/yearlabel"
+        android:layout_toEndOf="@+id/yearlabel"
+        android:layout_marginTop="56dp" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/tapme"
-        android:layout_below="@+id/textView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="53dp"
-        android:onClick="onButtonTap" />
-
-    <EditText
-        android:id="@+id/my_name"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="69dp"
-        android:inputType="text"
-        />
-
-
-
-
+        android:layout_marginTop="89dp"
+        android:onClick="onButtonTap"
+        android:layout_below="@+id/Year"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>
