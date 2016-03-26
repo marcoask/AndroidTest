@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 
 public class MainActivity extends Activity
 {
@@ -17,6 +18,11 @@ public class MainActivity extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        EditText edit =  (EditText) findViewById(R.id.my_name);
+        //String text = edit.getText.tostring();
+        String text = edit.getText().toString();
+
     }
 
 }
