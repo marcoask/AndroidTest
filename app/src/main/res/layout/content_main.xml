@@ -15,9 +15,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Test condivisione"
+        android:id="@+id/buttonShare"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button"
+        android:onClick="onShareTap"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/controlla_data"
         android:id="@+id/buttonData"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/buttonShare"
         android:layout_alignLeft="@+id/button"
         android:layout_alignStart="@+id/button"
         android:onClick="onDateTap"/>
@@ -73,11 +83,10 @@
         android:layout_centerHorizontal="true"
         android:clickable = "true"/>
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/button">
+
         <LinearLayout
+            android:id="@+id/linear"
+            android:layout_below="@id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -85,13 +94,28 @@
             <DatePicker
                 android:id="@+id/pickerdate"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:datePickerMode="spinner"
+                android:calendarViewShown="false"/>
             <TextView
                 android:id="@+id/info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-        </LinearLayout>
+     </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/linear">
+
+            <TextView
+                android:id="@+id/loremipsum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loremipsum" />
+
+
     </ScrollView>
 
 </RelativeLayout>

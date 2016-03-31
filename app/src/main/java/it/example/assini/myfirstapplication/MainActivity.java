@@ -83,7 +83,7 @@ public class MainActivity extends Activity {
             anni = "giovane";
         }
 
-        Toast myToast = Toast.makeText(getApplicationContext(), "Ciao " + name +"! (anni: " +anni+")" , Toast.LENGTH_LONG);
+        Toast myToast = Toast.makeText(getApplicationContext(), "Ciao " + name + "! (anni: " + anni + ")", Toast.LENGTH_LONG);
         myToast.show();
 
     }
@@ -95,11 +95,15 @@ public class MainActivity extends Activity {
         df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c.getTime());
 
-        sendEmail();
-
         Toast myToast = Toast.makeText(getApplicationContext(), "Oggi è il " + formattedDate, Toast.LENGTH_LONG);
         myToast.show();
 
+
+    }
+
+    public void onShareTap(View v) {
+
+        sendEmail();
 
     }
 
