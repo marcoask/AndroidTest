@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.DatePicker.OnDateChangedListener;
 import android.widget.EditText;
@@ -16,28 +14,25 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Locale;
 
 public class MainActivity extends Activity {
 
-    DatePicker pickerDate;
-    TextView info;
+    private DatePicker pickerDate;
+    private TextView info;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button btn = (Button) findViewById(R.id.button);
-
+//        Button btn = (Button) findViewById(R.id.button);
 //        if(!"".equals(name) && !"".equals(year)){
 //            btn.setClickable(true);
 //        }
 
-
-
-        info = (TextView)findViewById(R.id.info);
-        pickerDate = (DatePicker)findViewById(R.id.pickerdate);
+        info = (TextView) findViewById(R.id.info);
+        pickerDate = (DatePicker) findViewById(R.id.pickerdate);
 
         Calendar today = Calendar.getInstance();
 
@@ -45,17 +40,17 @@ public class MainActivity extends Activity {
                 today.get(Calendar.YEAR),
                 today.get(Calendar.MONTH),
                 today.get(Calendar.DAY_OF_MONTH),
-                new OnDateChangedListener(){
+                new OnDateChangedListener() {
 
                     @Override
-                    public void onDateChanged(DatePicker view, int year, int monthOfYear,int dayOfMonth) {
+                    public void onDateChanged(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
 
-                        Toast.makeText(getApplicationContext(), "onDateChanged", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), "onDateChanged", Toast.LENGTH_SHORT).show();
 
                         info.setText(
-                                "Year: " + year + "\n" +
-                                "Month of Year: " + monthOfYear + "\n" +
-                                "Day of Month: " + dayOfMonth);
+                                "\nData scelte:\nYear: " + year + "\n" +
+                                        "Month of Year: " + monthOfYear+1  + "\n" +
+                                        "Day of Month: " + dayOfMonth);
 
                     }
                 }
@@ -68,7 +63,13 @@ public class MainActivity extends Activity {
         EditText editName =  (EditText) findViewById(R.id.Name);
         String name = editName.getText().toString();
 
-        String anni;
+        int year = pickerDate.getYear();
+        int month = pickerDate.getMonth();
+        int day = pickerDate.getDayOfMonth();
+
+        String anni = getAge(year, month, day);
+
+/**
         int year = 0;
         EditText editYear =  (EditText) findViewById(R.id.Year);
         if (!TextUtils.isEmpty(editYear.getText().toString())){
@@ -77,6 +78,7 @@ public class MainActivity extends Activity {
         } else {
             anni = "?";
         }
+ **/
 
         if ("Elena".equalsIgnoreCase(name.trim()) && 1981==year){
             name = "Amorino";
@@ -92,12 +94,17 @@ public class MainActivity extends Activity {
 
         Calendar c = Calendar.getInstance();
         SimpleDateFormat df;
-        df = new SimpleDateFormat("dd-MMM-yyyy");
+        df = new SimpleDateFormat("dd-MMM-yyyy", Locale.ITALIAN);
         String formattedDate = df.format(c.getTime());
 
         Toast myToast = Toast.makeText(getApplicationContext(), "Oggi è il " + formattedDate, Toast.LENGTH_LONG);
         myToast.show();
 
+    }
+
+    public void onButtonNewActivityTap(View v) {
+
+        //http://developer.android.com/training/basics/firstapp/starting-activity.html
 
     }
 
@@ -122,13 +129,12 @@ public class MainActivity extends Activity {
             age--;
         }
 
-        Integer ageInt = new Integer(age);
-        String ageS = ageInt.toString();
+        Integer ageInt = age;
 
-        return ageS;
+        return ageInt.toString();
     }
 
-    protected void sendEmail() {
+    private void sendEmail() {
         Log.i("Send email", "Send email");
 
         String[] TO = {"marco.assini@gmail.com"};
