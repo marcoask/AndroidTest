@@ -16,10 +16,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+//public class MyActivity extends AppCompatActivity {
 public class MainActivity extends Activity {
 
     private DatePicker pickerDate;
     private TextView info;
+    public final static String EXTRA_MESSAGE = "it.example.assini.myfirstapplication.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +107,12 @@ public class MainActivity extends Activity {
     public void onButtonNewActivityTap(View v) {
 
         //http://developer.android.com/training/basics/firstapp/starting-activity.html
+        Intent intent = new Intent(this, DisplayMessageActivity.class);
+        EditText editText = (EditText) findViewById(R.id.Name);
+        String message = editText.getText().toString();
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
+
 
     }
 
