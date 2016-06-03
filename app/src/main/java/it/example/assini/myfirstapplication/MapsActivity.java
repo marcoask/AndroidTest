@@ -64,6 +64,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.setOnMapClickListener(this);
         info = (TextView)findViewById(R.id.info);
 
+        info.setText("test\n\n");
+
         //RICERCA:
         //http://stackoverflow.com/questions/31619194/android-studio-google-maps-search
 
